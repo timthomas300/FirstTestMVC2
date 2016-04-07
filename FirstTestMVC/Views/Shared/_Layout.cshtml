@@ -57,7 +57,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span class="navbar-brand @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeNav" : "")">@Html.ActionLink("Tim Thomas", "Index", "TT", new { @class = "top-link", id = "mainPage" })</span>
+                    <span class="navbar-brand"><a class="top-link" id="mainPage" href="@Url.Action( "Index", "TT")">Tim Thomas</a></span>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -68,8 +68,8 @@
                         <li class="page-scroll @(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "activeNav" : "")">
                             @Html.ActionLink("About", "About", "TT")
                         </li>
-                        <li class="page-scroll @(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "activeNav" : "")">
-                            @Html.ActionLink("Contact", "Contact", "TT")
+                        <li class="page-scroll @(ViewContext.RouteData.Values["Action"].ToString() == "Create" ? "activeNav" : "")">
+                            @Html.ActionLink("Contact", "Create", "Contacts")
                         </li>
                     </ul>
                 </div>
@@ -130,9 +130,10 @@
     </div>
 
         <!-- jQuery -->
-        <script src="~/js/jquery.js"></script>
-        <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        @*<script src="~/js/jquery.js"></script>*@
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+        @*<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>*@
         <!--Bootstrap Core JavaScript-->
         <script src="~/js/bootstrap.min.js"></script>
         <!-- Plugin JavaScript -->
@@ -148,6 +149,7 @@
         <script type="text/javascript">
         SyntaxHighlighter.all();
         </script>
+        @RenderSection("scripts", required: false)
 
 </body>
 </html>

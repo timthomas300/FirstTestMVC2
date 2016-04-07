@@ -13,7 +13,7 @@ using System.Net.Mail;
 
 namespace FirstTestMVC.Controllers
 {
-    [Authorize (Roles = "Admin")]
+    //[Authorize (Roles = "Admin")]
     public class ContactsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -65,15 +65,15 @@ namespace FirstTestMVC.Controllers
             var transportWeb = new Web(ConfigurationManager.AppSettings["APIKey"]);
             //Send the email.
             transportWeb.DeliverAsync(myMessage);
-
+            ViewBag.Sent = false;
             if (ModelState.IsValid)
             {
+                ViewBag.Sent = true;
                 db.Contact.Add(contact);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
             }
+            return RedirectToAction("Index", "TT", new { area = "" });
 
-            return View(contact);
         }
 
         // GET: Contacts/Edit/5

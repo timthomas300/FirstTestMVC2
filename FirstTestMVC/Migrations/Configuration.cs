@@ -13,7 +13,6 @@ namespace FirstTestMVC.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "FirstTestMVC.Models.ApplicationDbContext";
         }
 
         protected override void Seed(FirstTestMVC.Models.ApplicationDbContext context)
@@ -31,48 +30,30 @@ namespace FirstTestMVC.Migrations
             //    );
             //
 
-            if (!context.Roles.Any(r => r.Name == "Admin"))
-            {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Admin" };
+            var roleManager = new RoleManager<IdentityRole>(
+                new RoleStore<IdentityRole>(context));
 
-                manager.Create(role);
+            if(!context.Roles.Any(r => r.Name == "Admin"))
+            {
+                roleManager.Create(new IdentityRole { Name = "Admin" });
             }
+            var userManager = new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(context));
 
-            if (!context.Users.Any(u => u.Email == "timthomas300@gmail.com"))
+            if(!context.Users.Any(u => u.Email == "timthomas300@gmail.com"))
             {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser
+                userManager.Create(new ApplicationUser
                 {
                     UserName = "timthomas300@gmail.com",
                     Email = "timthomas300@gmail.com",
-                    //FirstName = "Timothy",
-                    //LastName = "Thomas",
-                    //DisplayName = "Timothy"
-                };
-
-                manager.Create(user, "Julytt777!");
-                manager.AddToRole(user.Id, "Admin");
+                    FirstName = "Timothy",
+                    LastName = "Thomas",
+                    DisplayName = "timthomas300"
+                }, "Julytt777!");
             }
 
-            if (!context.Users.Any(u => u.Email == "araynor@coderfoundry.com"))
-            {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser
-                {
-                    UserName = "ANIVRA",
-                    Email = "araynor@coderfoundry.com",
-                    //FirstName = "Timothy",
-                    //LastName = "Thomas",
-                    //DisplayName = "Timothy"
-                };
-
-                manager.Create(user, "Abc&123!");
-
-            }
+            var userId = userManager.FindByEmail("timthomas300@gmail.com").Id;
+            userManager.AddToRole(userId, "Admin");
         }
     }
 }

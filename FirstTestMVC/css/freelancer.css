@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+table p {
+    font-size: 15px;
+}
+
 #mainPage {
     color: white;
     text-decoration: none;
@@ -259,10 +263,6 @@ section {
 section h2 {
     margin: 0;
     font-size: 3em;
-}
-
-.contactForm {
-    text-decoration: line-through;
 }
 
 section.success {
