@@ -69,7 +69,7 @@
                             @Html.ActionLink("About", "About", "TT")
                         </li>
                         <li class="page-scroll @(ViewContext.RouteData.Values["Action"].ToString() == "Create" ? "activeNav" : "")">
-                            @Html.ActionLink("Contact", "Create", "Contacts")
+                            @Html.ActionLink("Contact", "Contact", "Home")
                         </li>
                     </ul>
                 </div>
@@ -137,9 +137,9 @@
         <!--Bootstrap Core JavaScript-->
         <script src="~/js/bootstrap.min.js"></script>
         <!-- Plugin JavaScript -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        @*<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="~/js/classie.js"></script>
-        <script src="~/js/cbpAnimatedHeader.js"></script>
+        <script src="~/js/cbpAnimatedHeader.js"></script>*@
         <!-- Contact Form JavaScript -->
         @*<script src="~/js/jqBootstrapValidation.js"></script>*@
         @*<script src="~/js/contact_me.js"></script>*@

@@ -65,14 +65,23 @@ namespace FirstTestMVC.Controllers
             var transportWeb = new Web(ConfigurationManager.AppSettings["APIKey"]);
             //Send the email.
             transportWeb.DeliverAsync(myMessage);
-            ViewBag.Sent = false;
             if (ModelState.IsValid)
             {
-                ViewBag.Sent = true;
                 db.Contact.Add(contact);
                 db.SaveChanges();
+                TempData["msgSent"] = "<script>alert('Message sent successfully!');</script>";
+                return RedirectToAction("Index", "TT", new { area = "" });
             }
-            return RedirectToAction("Index", "TT", new { area = "" });
+            else if(!ModelState.IsValid || myMessage == null || contact.Message == null)
+            {
+                TempData["msgFail"] = "<script>alert('Message not sent. Please try again.');</script>";
+                return View(contact);
+            }
+            else
+            {
+                return RedirectToAction("Index", "TT", new { area = "" });
+            }
+
 
         }
 

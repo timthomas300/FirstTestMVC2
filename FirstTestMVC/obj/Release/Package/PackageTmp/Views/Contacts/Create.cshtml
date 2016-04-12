@@ -136,11 +136,4 @@
 
 }
 
-@{if (ViewBag.Sent == true) {
-        <p class="col-md-offset-4 col-md-4 text-center">Message sent successfully!</p>;
-    }
-    else if (ViewBag.Sent == false)
-    {
-        <p>Message was not sent. Please try again.</p>
-    }
-  }
+@Html.Raw(TempData["msgFail"])

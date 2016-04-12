@@ -20,6 +20,7 @@ namespace FirstTestMVC.Controllers
             return View(db.Posts.ToList());
         }
 
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Admin()
         {
             return View(db.Posts.ToList());
@@ -40,6 +41,7 @@ namespace FirstTestMVC.Controllers
             return View(blogPost);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: BlogPosts/Create
         public ActionResult Create()
         {
@@ -76,6 +78,7 @@ namespace FirstTestMVC.Controllers
             return View(blogPost);
         }
 
+        [Authorize(Roles = "Admin, Moderator")]
         // GET: BlogPosts/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -114,6 +117,7 @@ namespace FirstTestMVC.Controllers
             return View(blogPost);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: BlogPosts/Delete/5
         public ActionResult Delete(int? id)
         {

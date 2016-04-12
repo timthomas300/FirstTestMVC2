@@ -100,7 +100,6 @@ C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\b
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\roslyn\vbc.exe
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\roslyn\VBCSCompiler.exe
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\FirstTestMVC.dll.config
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\FirstTestMVC.dll
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\FirstTestMVC.pdb
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\Antlr3.Runtime.dll
@@ -174,3 +173,4 @@ C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\b
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\obj\Release\FirstTestMVC.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\obj\Release\FirstTestMVC.dll
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\obj\Release\FirstTestMVC.pdb
+C:\Users\Dell\Documents\Visual Studio 2015\Projects\FirstTestMVC2\FirstTestMVC\bin\FirstTestMVC.dll.config

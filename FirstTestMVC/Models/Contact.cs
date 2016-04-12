@@ -15,8 +15,6 @@ namespace FirstTestMVC.Models
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public string PhoneNumber {get; set;}
-        [Required]
         public string Message { get; set; }
         public DateTime Time { get; set; }
         

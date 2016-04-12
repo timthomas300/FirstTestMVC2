@@ -13,6 +13,7 @@ namespace FirstTestMVC.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(FirstTestMVC.Models.ApplicationDbContext context)
@@ -51,9 +52,28 @@ namespace FirstTestMVC.Migrations
                     DisplayName = "timthomas300"
                 }, "Julytt777!");
             }
-
             var userId = userManager.FindByEmail("timthomas300@gmail.com").Id;
             userManager.AddToRole(userId, "Admin");
+
+            if (!context.Roles.Any(r => r.Name == "Moderator"))
+            {
+                roleManager.Create(new IdentityRole { Name = "Moderator" });
+            }
+
+            if (!context.Users.Any(u => u.Email == "moderator@coderfoundry.com"))
+            {
+                userManager.Create(new ApplicationUser
+                {
+                    UserName = "moderator@coderfoundry.com",
+                    Email = "moderator@coderfoundry.com",
+                    FirstName = "Moderator",
+                    LastName = "CoderFoundry",
+                    DisplayName = "CF Moderator"
+                }, "Password-1");
+            }
+
+            var userId2 = userManager.FindByEmail("moderator@coderfoundry.com").Id;
+            userManager.AddToRole(userId2, "Moderator");
         }
     }
 }
